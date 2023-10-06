@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Botões Com Ações</title>
+<style>
+    body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+button {
+    position: absolute;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sim-button {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#nao-button {
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#mensagem {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <button id="sim-button">Sim</button>
+    <button id="nao-button">Não</button>
+    <p id="mensagem">vai me da o cuzinho Hoje??</p>
+    <script src="script.js">
+    const simButton = document.getElementById('nao-button');
+const naoButton = document.getElementById('sim-button');
+const mensagem = document.getElementById('mensagem');
+
+simButton.addEventListener('click', () => {
+    const maxX = window.innerWidth - simButton.clientWidth;
+    const maxY = window.innerHeight - simButton.clientHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    simButton.style.left = `${randomX}px`;
+    simButton.style.top = `${randomY}px`;
+});
+
+naoButton.addEventListener('click', () => {
+    mensagem.textContent = 'Hoje tem!';
+});
+    </script>
+</body>
+</html>
